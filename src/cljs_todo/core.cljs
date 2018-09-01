@@ -20,12 +20,13 @@
 (dispatch-sync [:initialize-db])
 
 (defroute "/" [] (dispatch [:set-showing :all]))
-(defroute ":filter" [filter] (dispatch [:set-showing (keyword filter)]))
+(defroute "/:filter" [filter] (dispatch [:set-showing (keyword filter)]))
 
 (def history
   (doto (History.)
     (events/listen EventType.NAVIGATE
-                   (fn [event] (secretary/dispatch! (.-token event))))))
+                   (fn [event] (secretary/dispatch! (.-token event))))
+    (.setEnabled true)))
 
 (defn ^:export run
   []
