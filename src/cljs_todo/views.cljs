@@ -71,7 +71,7 @@
      [:ul#filters
       [:li (a-fn :all "All")]
       [:li (a-fn :active "Active")]
-      [:li (a-fn :completed "Completed")]]
+      [:li (a-fn :done "Completed")]]
      (when (pos? done)
        [:button#clear-completed
         {:on-click #(dispatch [:clear-completed])}
