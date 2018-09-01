@@ -11,3 +11,13 @@ pom.xml
 .lein-plugins/
 .repl
 .nrepl-port
+
+### Emacs ###
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
