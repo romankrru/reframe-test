@@ -25,7 +25,7 @@
     (subscribe [:showing])])
  (fn [[todos showing] _]
    (let [filter-fn (case showing
-                     :active (complement :don)
+                     :active (complement :done)
                      :done :done
                      :all identity)]
      (filter filter-fn todos))))
