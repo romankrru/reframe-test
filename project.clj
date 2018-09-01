@@ -11,6 +11,9 @@
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.10.238"]
                  [org.clojure/core.async  "0.4.474"]
+                 [re-frame "0.10.5"]
+                 [binaryage/devtools "0.9.4"]
+                 [secretary "1.2.3"]
                  [reagent "0.7.0"]]
 
   :plugins [[lein-figwheel "0.5.16"]
@@ -25,7 +28,7 @@
                 ;; The presence of a :figwheel configuration here
                 ;; will cause figwheel to inject the figwheel client
                 ;; into your build
-                :figwheel {:on-jsload "cljs-todo.core/on-js-reload"
+                :figwheel {:on-jsload "cljs-todo.core/run"
                            ;; :open-urls will pop open your application
                            ;; in the default browser once Figwheel has
                            ;; started and compiled your application.
