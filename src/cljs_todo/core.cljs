@@ -10,6 +10,7 @@
    [cljs-todo.events]
    [cljs-todo.subs]
    [cljs-todo.views]
+   [stylefy.core :as stylefy]
    [devtools.core :as devtools])
   (:import [goog History]
            [goog.history EventType]))
@@ -30,5 +31,6 @@
 
 (defn ^:export run
   []
+  (stylefy/init)
   (reagent/render [cljs-todo.views/todo-app]
                   (.getElementById js/document "app")))

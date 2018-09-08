@@ -1,7 +1,10 @@
 (ns cljs-todo.views
-  (:require [reagent.core  :as reagent]
-            [clojure.string :as str]
-            [re-frame.core :refer [subscribe dispatch]]))
+  (:require
+   [cljs-todo.style :as style]
+   [reagent.core  :as reagent]
+   [clojure.string :as str]
+   [stylefy.core :refer [use-style]]
+   [re-frame.core :refer [subscribe dispatch]]))
 
 (defn todo-input [{:keys [title on-save on-stop]}]
   (let [val (reagent/atom title)
@@ -73,8 +76,8 @@
       [:li (a-fn :active "Active")]
       [:li (a-fn :done "Completed")]]
      (when (pos? done)
-       [:button#clear-completed
-        {:on-click #(dispatch [:clear-completed])}
+       [:button (use-style style/btn
+                           {:on-click #(dispatch [:clear-completed])})
         "Clear completed"])]))
 
 (defn task-entry []

@@ -13,6 +13,7 @@
                  [org.clojure/core.async  "0.4.474"]
                  [re-frame "0.10.5"]
                  [binaryage/devtools "0.9.4"]
+                 [stylefy "1.7.0"]
                  [secretary "1.2.3"]
                  [reagent "0.7.0"]]
 
