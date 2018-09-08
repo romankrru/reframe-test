@@ -1,4 +1,10 @@
-(ns cljs-todo.style)
+(ns cljs-todo.style
+  (:require [stylefy.core :as stylefy]))
 
-(def btn {:color "red"
-           :background-color "black"})
+(stylefy/tag "*" {:box-sizing "border-box"})
+
+(stylefy/tag "body" {:margin 0
+                     :padding 0})
+
+(def btn {:color "blue"
+          :background-color "black"})
