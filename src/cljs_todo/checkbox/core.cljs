@@ -1,5 +1,6 @@
 (ns cljs-todo.checkbox.core
   (:require [reagent.core :as reagent]
+            [cljs-todo.utils :refer [deep-merge]]
             [stylefy.core :as stylefy]))
 
 (def bg-color "#59CAFF")
@@ -43,14 +44,6 @@
                                            "translatey(-20px)")
                            :height "20px"
                            :right "0"}}})
-
-(defn deep-merge [v & vs]
-  (letfn [(rec-merge [v1 v2]
-                     (if (and (map? v1) (map? v2))
-                       (merge-with deep-merge v1 v2)
-                       v2))]
-    (when (some identity vs)
-      (reduce #(rec-merge %1 %2) v vs))))
 
 (def
   label-checked-sub-styles
