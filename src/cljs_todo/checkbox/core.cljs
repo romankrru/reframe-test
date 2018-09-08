@@ -80,13 +80,13 @@
 
 (def styles (merge checkbox-styles sub-styles))
 
-(defn checkbox [{:keys [checked on-change]}]
+(defn checkbox [{:keys [checked on-change id]}]
   [:div (stylefy/use-style styles)
    [:input (stylefy/use-sub-style styles :input
                                   {:type "checkbox"
                                    :checked checked
                                    :on-change on-change
-                                   :id "cb1"})]
+                                   :id id})]
    [:label (stylefy/use-sub-style styles
-                                  (if checked :label :label-checked)
-                                  {:for "cb1"})]])
+                                  (if checked :label-checked :label)
+                                  {:for id})]])
