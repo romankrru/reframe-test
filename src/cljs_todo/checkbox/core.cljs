@@ -3,7 +3,7 @@
             [stylefy.core :as stylefy]))
 
 (def bg-color "#59CAFF")
-(def checkbox-color "black")
+(def checkbox-color "white")
 (def checkbox-check-color bg-color)
 
 (def input-sub-styles {:display "none"})
@@ -14,6 +14,7 @@
    :display "block"
    :width "30px"
    :height "30px"
+   :overflow "hidden"
    :border (str "2px solid " checkbox-color)
    :transition (str "transform .5s ease-in-out, "
                     "background .125s ease-in-out")
@@ -56,14 +57,15 @@
   (deep-merge
    label-sub-styles
    {:background checkbox-color
-    ::stylefy/mode {:before {:transform (str "rotate(-45deg) "
+    ::stylefy/mode {:hover {:background checkbox-color}
+                    :before {:transform (str "rotate(-45deg) "
                                              "translatex(-4px) "
-                                             "translatey(15px)")
+                                             "translatey(12px)")
                              :-webkit-backface-visibility "hidden"
                              :backface-visibility "hidden"}
                     :after {:transform (str "rotate(45deg) "
                                             "translatex(-4px) "
-                                            "translatey(11px)")
+                                            "translatey(8px)")
                             :-webkit-backface-visibility "hidden"
                             :backface-visibility "hidden"}}}))
 
