@@ -32,9 +32,9 @@
       [:li {:class (str (when done "completed")
                         (when @editing "editing"))}
        [:div.view
-        [:input.toggle {:type "checkbox"
-                        :checked done
-                        :on-change #(dispatch [:toggle-done id])}]
+        [checkbox {:checked done
+                   :id id
+                   :on-change #(dispatch [:toggle-done id])}]
         [:label
          {:on-double-click #(reset! editing true)}
          title]
@@ -89,8 +89,6 @@
                 :on-save #(when (seq %)
                             (dispatch [:add-todo %]))}]])
 
-(def cb-state (reagent/atom false))
-
 (defn todo-app []
   [:div
    [:section#todo-app
@@ -99,7 +97,4 @@
       [task-list])
     [footer-controls]]
    [:footer#info
-    [:p "Double click to edit a todo"]]
-   [checkbox {:checked @cb-state
-              :on-change (fn []
-                           (swap! cb-state not))}]])
+    [:p "Double click to edit a todo"]]])
