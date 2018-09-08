@@ -102,5 +102,4 @@
     [:p "Double click to edit a todo"]]
    [checkbox {:checked @cb-state
               :on-change (fn []
-                           (print "click")
                            (swap! cb-state not))}]])
