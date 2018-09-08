@@ -1,6 +1,7 @@
 (ns cljs-todo.views
   (:require
    [cljs-todo.style :as style]
+   [cljs-todo.checkbox.core :refer [checkbox]]
    [reagent.core  :as reagent]
    [clojure.string :as str]
    [stylefy.core :refer [use-style]]
@@ -88,6 +89,8 @@
                 :on-save #(when (seq %)
                             (dispatch [:add-todo %]))}]])
 
+(def cb-state (reagent/atom false))
+
 (defn todo-app []
   [:div
    [:section#todo-app
@@ -96,4 +99,8 @@
       [task-list])
     [footer-controls]]
    [:footer#info
-    [:p "Double click to edit a todo"]]])
+    [:p "Double click to edit a todo"]]
+   [checkbox {:checked @cb-state
+              :on-change (fn []
+                           (print "click")
+                           (swap! cb-state not))}]])

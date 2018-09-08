@@ -3,7 +3,8 @@
 
 (stylefy/tag "*" {:box-sizing "border-box"})
 
-(stylefy/tag "body" {:margin 0
+(stylefy/tag "body" {:font-family "sans-serif"
+                     :margin 0
                      :padding 0})
 
 (def btn {:color "blue"
