@@ -1,6 +1,7 @@
 (ns cljs-todo.views
   (:require
    [cljs-todo.style :as style]
+   [cljs-todo.button.core :refer [button]]
    [cljs-todo.checkbox.core :refer [checkbox]]
    [reagent.core  :as reagent]
    [clojure.string :as str]
@@ -97,4 +98,5 @@
       [task-list])
     [footer-controls]]
    [:footer#info
-    [:p "Double click to edit a todo"]]])
+    [:p "Double click to edit a todo"]]
+   [button {:appearance "close"} "hello"]])
